@@ -51,10 +51,10 @@ export default function AdsBanner({
     return (
         <div className="my-8 flex justify-center overflow-hidden">
             {finalClientId && (
-                <div style={{ width: '100%', minHeight: '250px', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ width: '100%', overflow: 'hidden' }}>
                     <ins
                         className="adsbygoogle"
-                        style={{ display: 'block', minWidth: '300px', minHeight: '250px', width: '100%' }}
+                        style={{ display: 'block' }}
                         data-ad-client={finalClientId}
                         data-ad-slot={finalSlotId}
                         data-ad-format={format}
