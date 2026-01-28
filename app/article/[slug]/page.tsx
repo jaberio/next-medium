@@ -230,11 +230,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     {/* Ad Banner */}
                     {config.ads.google_adsense && (
                         <div className="my-12">
-                            <AdsBanner
-                                adClient={config.ads.google_adsense?.split('/')[0]}
-                                adSlot={config.ads.google_adsense?.split('/').length > 1 ? config.ads.google_adsense.split('/')[1] : undefined}
-                                customCode={config.ads.custom_ads_code}
-                            />
+                            {(() => {
+                                const [client, slot] = config.ads.google_adsense!.split('/').map(s => s.trim());
+                                return (
+                                    <AdsBanner
+                                        adClient={client}
+                                        adSlot={slot}
+                                        customCode={config.ads.custom_ads_code}
+                                    />
+                                );
+                            })()}
                         </div>
                     )}
 
