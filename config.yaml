@@ -1,6 +1,6 @@
 # Site Metadata
 site:
-  name: "My Medium-Like Blog"
+  name: "Next Medium"
   tagline: "Ideas, Stories, and Tutorials"
   logo: "/assets/logo.png"
   favicon: "/assets/favicon.ico"
@@ -66,7 +66,7 @@ posts:
 features:
   newsletter: true
   comments: "disqus" # options: disqus, facebook, custom, or empty string to disable
-  disqus_shortname: "jayiq" # required if comments is "disqus"
+  disqus_shortname: "" # required if comments is "disqus"
   search: true
   tags: true
   reading_time: true
