@@ -24,6 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const config = getServerSiteConfig()
 
   return {
+    metadataBase: new URL(config.site.base_url || 'http://localhost:3000'),
     title: {
       default: config.site.name,
       template: `%s | ${config.site.name}`,
