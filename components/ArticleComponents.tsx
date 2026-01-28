@@ -102,6 +102,7 @@ const components = {
                 code={String(children).replace(/\n$/, '')}
                 language={match ? match[1] : 'text'}
                 className={className}
+                config={props.config}
             />
         );
     },

@@ -1,4 +1,4 @@
-import { getSiteConfig } from '@/lib/config'
+import { getServerSiteConfig } from '@/lib/config-server'
 import Image from 'next/image'
 import { Metadata } from 'next'
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-    const config = getSiteConfig()
+    const config = getServerSiteConfig()
 
     return (
         <div className="min-h-screen py-16">

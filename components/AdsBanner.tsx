@@ -18,30 +18,14 @@ export default function AdsBanner({
     adSlot,
     customCode
 }: AdsBannerProps) {
-    // If props are provided (from server config), use them.
-    // Fallback to static config ONLY if props are missing (e.g. usage on client pages where static is acceptable)
-    const staticConfig = getSiteConfig();
-
-    // Parse the static config string
-    const staticAdConfig = staticConfig.ads.google_adsense ? staticConfig.ads.google_adsense.split('/') : [];
-    const staticClientId = staticAdConfig[0];
-    const staticDefaultSlot = staticAdConfig.length > 1 ? staticAdConfig[1] : undefined;
-
-    // Determine final clientId
-    const finalClientId = adClient || staticClientId;
+    // Determine final clientId from props (passed from server config)
+    const finalClientId = adClient;
 
     // Determine final slotId
-    let finalSlotId;
-    if (adSlot) {
-        finalSlotId = adSlot;
-    } else if (slot === 'auto' && staticDefaultSlot) {
-        finalSlotId = staticDefaultSlot;
-    } else {
-        finalSlotId = slot;
-    }
+    const finalSlotId = adSlot || (slot !== 'auto' ? slot : undefined);
 
     // Determine final customCode
-    const finalCustomCode = customCode || staticConfig.ads.custom_ads_code;
+    const finalCustomCode = customCode;
 
 
 

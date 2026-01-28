@@ -1,5 +1,5 @@
 import { getAllArticles, getAllTags } from '@/lib/markdown'
-import { getSiteConfig } from '@/lib/config'
+import { getServerSiteConfig } from '@/lib/config-server'
 import Search from '@/components/Search'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import ArticleCard from '@/components/ArticleCard'
@@ -7,7 +7,7 @@ import ArticleCard from '@/components/ArticleCard'
 export default function HomePage() {
   const articles = getAllArticles()
   const allTags = getAllTags()
-  const config = getSiteConfig()
+  const config = getServerSiteConfig()
 
   return (
     <div className="min-h-screen">

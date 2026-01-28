@@ -206,7 +206,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     ">
                         <MDXRemote
                             source={article.content}
-                            components={components}
+                            components={{
+                                ...components,
+                                code: (props: any) => <components.code {...props} config={config.syntax_highlighting} />
+                            }}
                             options={{
                                 parseFrontmatter: true,
                                 mdxOptions: {
@@ -228,8 +231,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     {config.ads.google_adsense && (
                         <div className="my-12">
                             <AdsBanner
-                                adClient={config.ads.google_adsense ? config.ads.google_adsense.split('/')[0] : undefined}
-                                adSlot={config.ads.google_adsense && config.ads.google_adsense.split('/').length > 1 ? config.ads.google_adsense.split('/')[1] : undefined}
+                                adClient={config.ads.google_adsense?.split('/')[0]}
+                                adSlot={config.ads.google_adsense?.split('/').length > 1 ? config.ads.google_adsense.split('/')[1] : undefined}
                                 customCode={config.ads.custom_ads_code}
                             />
                         </div>

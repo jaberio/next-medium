@@ -10,16 +10,18 @@ import cn from 'classnames';
 import 'prismjs/themes/prism.css';
 import 'highlight.js/styles/github.css';
 
+import { SiteConfig } from '@/lib/types';
+
 interface CodeBlockProps {
     code: string;
     language?: string;
     className?: string;
     showLineNumbers?: boolean;
     highlightLines?: number[];
+    config: SiteConfig['syntax_highlighting']; // Pass config explicitly
 }
 
-export default function CodeBlock({ code, language = 'text', className, showLineNumbers, highlightLines = [] }: CodeBlockProps) {
-    const config = getSiteConfig().syntax_highlighting;
+export default function CodeBlock({ code, language = 'text', className, showLineNumbers, highlightLines = [], config }: CodeBlockProps) {
     const [highlightedHtml, setHighlightedHtml] = useState<string>('');
     const [isCollapsed, setIsCollapsed] = useState(false); // Collapsed state for large blocks
     const [isExpanded, setIsExpanded] = useState(false);   // User interaction state

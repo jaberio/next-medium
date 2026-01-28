@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { getSiteConfig } from '@/lib/config';
+import { SiteConfig } from '@/lib/types';
 import cn from 'classnames';
 import GDPRNotice from './GDPRNotice';
 
-export default function Footer() {
-    const config = getSiteConfig();
+interface FooterProps {
+    config: SiteConfig;
+}
+
+export default function Footer({ config }: FooterProps) {
     const footerConfig = config.footer;
     const currentYear = new Date().getFullYear();
 
