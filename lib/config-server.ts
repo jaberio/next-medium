@@ -38,6 +38,7 @@ export function getServerSiteConfig(): SiteConfig {
                 features: {
                     ...siteConfig.features,
                     ...yamlConfig.features,
+                    enable_comments: !!process.env.DISQUS_SHORTNAME || yamlConfig.features?.enable_comments || siteConfig.features.enable_comments,
                     disqus_shortname: process.env.DISQUS_SHORTNAME || yamlConfig.features?.disqus_shortname || siteConfig.features.disqus_shortname
                 },
                 seo: { ...siteConfig.seo, ...yamlConfig.seo },
