@@ -30,7 +30,7 @@ analytics:
 
 # Ads Integrations
 ads:
-  google_adsense: "ca-pub-3940256099942544/9257395921" # Test Ad Unit (Adaptive Banner) formatted for Web
+  google_adsense: "ca-pub-3940256099942544/9257395921" # Test Ad Unit (Placeholder). Override with NEXT_PUBLIC_ADSENSE_ID env var.
   mediavine: false
   custom_ads_code: "" # Custom ad script
 

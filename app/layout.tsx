@@ -101,7 +101,7 @@ export default function RootLayout({
         {config.ads.google_adsense && (
           <script
             async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${config.ads.google_adsense.split('/')[0]}`} // Assumes format ca-pub-XXXX/YYYY -> client is ca-pub-XXXX
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${config.ads.google_adsense.split('/')[0].trim()}`}
             crossOrigin="anonymous"
           />
         )}

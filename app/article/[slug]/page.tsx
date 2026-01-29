@@ -231,7 +231,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                     {config.ads.google_adsense && (
                         <div className="my-12">
                             {(() => {
-                                const [client, slot] = config.ads.google_adsense!.split('/').map(s => s.trim());
+                                const [client, slot] = (config.ads.google_adsense || '').split('/').map(s => s.trim());
                                 return (
                                     <AdsBanner
                                         adClient={client}

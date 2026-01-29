@@ -1,14 +1,21 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { getSiteConfig } from '@/lib/config'
+import { useEffect, useRef, useState } from 'react'
+
+declare global {
+    interface Window {
+        adsbygoogle: any[];
+    }
+}
+
 
 interface AdsBannerProps {
     slot?: string;
-    format?: string;
+    format?: 'auto' | 'fluid' | 'rectangle';
     adClient?: string;
     adSlot?: string;
     customCode?: string;
+    responsive?: boolean;
 }
 
 export default function AdsBanner({
@@ -16,55 +23,75 @@ export default function AdsBanner({
     format = 'auto',
     adClient,
     adSlot,
-    customCode
+    customCode,
+    responsive = true
 }: AdsBannerProps) {
-    // Determine final clientId from props (passed from server config)
-    const finalClientId = adClient;
+    const adRef = useRef<HTMLModElement>(null);
+    const [isMounted, setIsMounted] = useState(false);
 
-    // Determine final slotId
+    // Determine final clientId
+    const finalClientId = adClient;
+    // Determine final slotId. Use adSlot if provided, otherwise slot if it's not 'auto' (legacy prop support)
     const finalSlotId = adSlot || (slot !== 'auto' ? slot : undefined);
 
-    // Determine final customCode
-    const finalCustomCode = customCode;
-
-
-
-    const adInitialized = useRef(false)
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     useEffect(() => {
-        // Initialize Google AdSense
-        if (finalClientId && !adInitialized.current) {
-            try {
-                console.log('Initializing Adsense for:', finalClientId);
-                ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({})
-                adInitialized.current = true
-            } catch (error) {
-                console.error('AdSense error:', error)
-            }
-        }
-    }, [finalClientId])
+        if (!isMounted || !finalClientId || !finalSlotId) return;
 
-    if (!finalClientId && !finalCustomCode) {
-        return <div className="p-4 bg-red-100 text-red-800 border border-red-300">Ads Config Missing (Client)</div>;
+        // Prevent double injection if strict mode is on or re-renders happen
+        const pushAd = () => {
+            try {
+                if (window.adsbygoogle) {
+                    // Check if this specific ad slot has already been filled to avoid "All ins elements in the DOM with class=adsbygoogle already have ads in them" error
+                    if (adRef.current && adRef.current.innerHTML === '') {
+                        (window.adsbygoogle = window.adsbygoogle || []).push({});
+                    }
+                }
+            } catch (error) {
+                console.error('AdSense error:', error);
+            }
+        };
+
+        // Small timeout to ensure DOM is ready
+        const timer = setTimeout(pushAd, 100);
+        return () => clearTimeout(timer);
+
+    }, [finalClientId, finalSlotId, isMounted]);
+
+    if (!isMounted) return <div className="min-h-[280px] bg-gray-50 dark:bg-gray-800/50 animate-pulse rounded-lg" />;
+
+    if (!finalClientId && !customCode) {
+        return null;
+    }
+
+    // specific rendering rule: If we have client ID but NO slot ID, we cannot render a specific unit safely
+    // unless it's some auto-ad container, but standard units require slots.
+    // If only client ID is present (Auto Ads), we shouldn't render a blank block here.
+    if (finalClientId && !finalSlotId && !customCode) {
+        return null;
     }
 
     return (
-        <div className="my-8 flex justify-center overflow-hidden">
-            {finalClientId && (
-                <div style={{ width: '100%', overflow: 'hidden' }}>
+        <div className="my-8 flex justify-center items-center overflow-hidden min-h-[100px] w-full">
+            {finalClientId && finalSlotId && (
+                <div className="w-full flex justify-center">
                     <ins
+                        ref={adRef}
                         className="adsbygoogle"
-                        style={{ display: 'block' }}
+                        style={{ display: 'block', width: '100%' }}
                         data-ad-client={finalClientId}
                         data-ad-slot={finalSlotId}
                         data-ad-format={format}
-                        data-full-width-responsive="true"
+                        data-full-width-responsive={responsive ? "true" : "false"}
                     />
                 </div>
             )}
 
-            {finalCustomCode && (
-                <div dangerouslySetInnerHTML={{ __html: finalCustomCode }} />
+            {customCode && (
+                <div dangerouslySetInnerHTML={{ __html: customCode }} />
             )}
         </div>
     )
