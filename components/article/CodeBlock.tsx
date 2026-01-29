@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { getSiteConfig } from '@/lib/config';
-import { getHighlightedCode } from '@/lib/syntaxHighlighter';
+import { getSiteConfig } from '@/lib/config/client';
+import { getHighlightedCode } from '@/lib/content/syntax';
 import { useTheme } from 'next-themes';
 import cn from 'classnames';
 

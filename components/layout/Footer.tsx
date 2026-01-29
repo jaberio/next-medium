@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { getSiteConfig } from '@/lib/config';
+import { getSiteConfig } from '@/lib/config/client';
 import { SiteConfig } from '@/lib/types';
 import cn from 'classnames';
-import GDPRNotice from './GDPRNotice';
+import GDPRNotice from '../legal/GDPRNotice';
 
 interface FooterProps {
     config: SiteConfig;

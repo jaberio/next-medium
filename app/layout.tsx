@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter, Roboto } from 'next/font/google'
-import './globals.css'
-import './styles/article.css'
-import './styles/components.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { getServerSiteConfig } from '@/lib/config-server'
+import '@/styles/globals.css'
+import '@/styles/article.css'
+import '@/styles/components.css'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import { getServerSiteConfig } from '@/lib/config/server'
 
 const inter = Inter({
   subsets: ['latin'],

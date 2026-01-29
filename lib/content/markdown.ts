@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
-import { Article, ArticlePreview, ArticleFrontMatter } from './types';
-import { getSiteConfig } from './config';
+import { Article, ArticlePreview, ArticleFrontMatter } from '@/lib/types';
+import { getSiteConfig } from '@/lib/config/client';
 
 /**
  * Get the path to the articles directory

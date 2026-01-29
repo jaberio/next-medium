@@ -1,4 +1,4 @@
-import { SiteConfig } from './types';
+import { SiteConfig } from '@/lib/types';
 import Prism from 'prismjs';
 import hljs from 'highlight.js';
 

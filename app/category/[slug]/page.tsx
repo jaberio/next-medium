@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
-import { getArticlesByCategory, getAllCategories } from '@/lib/markdown'
-import { getServerSiteConfig } from '@/lib/config-server'
-import ArticleCard from '@/components/ArticleCard'
+import { getArticlesByCategory, getAllCategories } from '@/lib/content/markdown'
+import { getServerSiteConfig } from '@/lib/config/server'
+import ArticleCard from '@/components/article/ArticleCard'
 import { Metadata } from 'next'
 
 // Generate static params for all categories

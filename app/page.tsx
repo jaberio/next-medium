@@ -1,8 +1,8 @@
-import { getAllArticles, getAllTags } from '@/lib/markdown'
-import { getServerSiteConfig } from '@/lib/config-server'
-import Search from '@/components/Search'
-import NewsletterSignup from '@/components/NewsletterSignup'
-import ArticleCard from '@/components/ArticleCard'
+import { getAllArticles, getAllTags } from '@/lib/content/markdown'
+import { getServerSiteConfig } from '@/lib/config/server'
+import Search from '@/components/ui/Search'
+import NewsletterSignup from '@/components/marketing/NewsletterSignup'
+import ArticleCard from '@/components/article/ArticleCard'
 
 export default function HomePage() {
   const articles = getAllArticles()

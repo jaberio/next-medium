@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import CodeBlock from './CodeBlock';
-import Callout from './Callout';
+import Callout from '../ui/Callout';
 import React from 'react';
 
 // Custom Image Component

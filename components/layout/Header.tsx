@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import ThemeToggle from './ThemeToggle'
+import ThemeToggle from '../ui/ThemeToggle'
 import { SiteConfig } from '@/lib/types'
-import CategoryDropdown from './CategoryDropdown'
+import CategoryDropdown from '../navigation/CategoryDropdown'
 
 
 interface HeaderProps {

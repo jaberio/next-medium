@@ -1,6 +1,6 @@
-import { getArticlesByTag, getAllTags } from '@/lib/markdown'
+import { getArticlesByTag, getAllTags } from '@/lib/content/markdown'
 import { notFound } from 'next/navigation'
-import ArticleCard from '@/components/ArticleCard'
+import ArticleCard from '@/components/article/ArticleCard'
 import { Metadata } from 'next'
 
 export async function generateStaticParams() {

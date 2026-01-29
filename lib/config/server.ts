@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
-import { siteConfig } from './config';
-import { SiteConfig } from './types';
+import { siteConfig } from './client';
+import { SiteConfig } from '@/lib/types';
 
 /**
  * Get the site configuration (Server Side Only)

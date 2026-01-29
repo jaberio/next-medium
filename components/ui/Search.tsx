@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArticlePreview } from '@/lib/types'
-import ArticleCard from './ArticleCard'
+import ArticleCard from '@/components/article/ArticleCard'
 
 interface SearchProps {
     articles: ArticlePreview[]
