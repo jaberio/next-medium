@@ -3,9 +3,13 @@ const withNextra = require('nextra')({
     themeConfig: './theme.config.jsx',
 })
 
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = withNextra({
     output: 'export',
     images: {
         unoptimized: true,
     },
+    basePath: isProd ? '/next-medium' : '',
+    assetPrefix: isProd ? '/next-medium/' : '',
 })
