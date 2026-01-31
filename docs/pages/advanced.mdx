@@ -1,0 +1,21 @@
+# Advanced Usage
+
+## Custom Scripts
+
+You can add custom scripts to your application by ensuring they are loaded in `app/layout.tsx` or using the Next.js `Script` component.
+
+## Environment Variables
+
+For sensitive information that shouldn't be in `config.yaml`, use `.env.local` files.
+
+```bash
+NEXT_PUBLIC_API_KEY=your_api_key
+```
+
+## CMS Integration
+
+Next Medium is designed to be extensible. While it primarily uses Markdown files, you can integrate with headless CMSs like Contentful or Sanity by modifying the data fetching logic in `lib/posts.ts`.
+
+## RSS Feed Generation
+
+The project automatically generates an RSS feed at build time. Ensure your `site.base_url` is correctly set in `config.yaml` for valid feed generation.

@@ -1,0 +1,28 @@
+# Troubleshooting
+
+Common issues and solutions when working with Next Medium.
+
+## Hydration Errors
+
+If you see errors like `Hydration failed because the initial UI does not match...`, it usually means your HTML structure is invalid (e.g., nesting a `div` inside a `p` tag) or you are rendering something dynamic (like a timestamp) on the server that differs from the client.
+
+**Solution:** Use the `useEffect` hook to render dynamic content only on the client side, or verify your HTML nesting.
+
+## Images Not Loading
+
+Ensure your images are placed in the `public` directory and referenced with a leading slash.
+
+- Correct: `/assets/image.png`
+- Incorrect: `assets/image.png`
+
+## Styles Not Applying
+
+If Tailwind classes aren't working, check your `tailwind.config.ts` content array to ensure it includes all paths where you are using classes.
+
+```ts
+content: [
+  './pages/**/*.{js,ts,jsx,tsx,mdx}',
+  './components/**/*.{js,ts,jsx,tsx,mdx}',
+  './app/**/*.{js,ts,jsx,tsx,mdx}',
+],
+```

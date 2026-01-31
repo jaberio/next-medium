@@ -1,0 +1,89 @@
+# Configuration
+
+All site configuration is managed through a single `config.yaml` file in the root directory.
+
+## Site Metadata
+
+Define basic information about your site.
+
+```yaml
+site:
+  name: "Next Medium"
+  tagline: "Ideas, Stories, and Tutorials"
+  logo: "/assets/logo.png"
+  favicon: "/assets/favicon.ico"
+  default_language: "en"
+  base_url: "http://localhost:3000"
+```
+
+## Branding & Theme
+
+Customize the look and feel of your site.
+
+```yaml
+theme:
+  colors:
+    primary: "#1a202c"
+    secondary: "#f6ad55"
+    accent: "#4299e1"
+    background_light: "#ffffff"
+    background_dark: "#0f172a"
+    text_light: "#2d3748"
+    text_dark: "#e2e8f0"
+  fonts:
+    heading: "Inter, sans-serif"
+    body: "Roboto, sans-serif"
+  default_mode: "light" # light or dark
+```
+
+## Analytics
+
+Add tracking IDs for supported analytics providers.
+
+```yaml
+analytics:
+  google_analytics: "G-XXXXXXX"
+  plausible: "https://plausible.example.com"
+  facebook_pixel: "XXXXXXX"
+```
+
+## Social Links
+
+Configure your social media profiles.
+
+```yaml
+social:
+  twitter: "https://twitter.com/example"
+  linkedin: "https://linkedin.com/in/example"
+  github: "https://github.com/example"
+  email: "hello@example.com"
+```
+
+## Features
+
+Toggle various features on or off.
+
+```yaml
+features:
+  newsletter: true
+  enable_comments: true
+  comments: "disqus" # options: disqus, facebook, custom, or empty string to disable
+  disqus_shortname: "your-shortname" # required if comments is "disqus"
+  search: true
+  tags: true
+  reading_time: true
+```
+
+## Navigation
+
+Manage header navigation and dropdowns.
+
+```yaml
+navigation:
+  header:
+    dropdowns:
+      - label: "Learn"
+        category_ids: ["how-to", "tutorials"]
+      - label: "Explore"
+        category_ids: ["guides", "case-studies"]
+```

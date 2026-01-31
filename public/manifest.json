@@ -1,6 +1,6 @@
 {
-    "name": "My Medium-Like Blog",
-    "short_name": "My Blog",
+    "name": "Next Medium",
+    "short_name": "Next Medium",
     "description": "A Medium-like blog built with Next.js",
     "start_url": "/",
     "display": "standalone",

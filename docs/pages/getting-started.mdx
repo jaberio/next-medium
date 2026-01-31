@@ -1,0 +1,67 @@
+# Getting Started
+
+## Prerequisites
+
+- Node.js 18+ and npm
+
+## Installation
+
+1. **Clone or navigate to the project directory**
+
+   ```bash
+   cd next-medium
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure your site**
+
+   Edit `config.yaml` to customize:
+   - Site name, tagline, and branding
+   - Theme colors and fonts
+   - Analytics IDs
+   - Social media links
+   - Feature toggles
+
+4. **Run development server**
+
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) to see your blog.
+
+5. **Build for production**
+
+   ```bash
+   npm run build
+   ```
+
+   The static site will be generated in the `out/` directory.
+
+## Project Structure
+
+```
+next-medium/
+├── app/                    # Next.js app directory
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   ├── globals.css        # Global styles
+│   ├── article/[slug]/    # Article pages
+│   ├── about/             # About page
+│   ├── contact/           # Contact page
+│   ├── tag/[tag]/         # Tag pages
+│   └── api/               # API routes
+├── components/            # React components
+├── content/articles/      # Markdown articles
+├── lib/                   # Utilities and helpers
+├── public/                # Static assets
+├── config.yaml            # Site configuration
+├── tailwind.config.ts     # Tailwind config
+├── next.config.js         # Next.js config
+└── package.json           # Dependencies
+```

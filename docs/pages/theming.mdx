@@ -1,0 +1,39 @@
+# Theming
+
+Next Medium allows extensive theming capabilities through the `config.yaml` file.
+
+## Colors
+
+You can customize the base color palette of your site.
+
+```yaml
+theme:
+  colors:
+    primary: "#1a202c"    # Main brand color
+    secondary: "#f6ad55"  # Accent color
+    accent: "#4299e1"     # Link and button color
+    background_light: "#ffffff"
+    background_dark: "#0f172a"
+    text_light: "#2d3748"
+    text_dark: "#e2e8f0"
+```
+
+## Fonts
+
+Customize the typography by specifying font families.
+
+```yaml
+theme:
+  fonts:
+    heading: "Inter, sans-serif"
+    body: "Roboto, sans-serif"
+```
+
+## Dark Mode
+
+Dark mode is supported out of the box. You can set the default mode in the configuration.
+
+```yaml
+theme:
+  default_mode: "light" # options: light, dark, system
+```

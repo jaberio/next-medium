@@ -1,0 +1,39 @@
+# Deployment
+
+Next Medium is a static site, meaning it can be deployed to any static hosting service.
+
+## Vercel (Recommended)
+
+Vercel is the creators of Next.js and offers the best integration.
+
+1. Install Vercel CLI:
+   ```bash
+   npm install -g vercel
+   ```
+
+2. Run deploy command:
+   ```bash
+   vercel
+   ```
+
+## Netlify
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. Deploy the `out` directory to Netlify manually or connect your GitHub repository to Netlify for automatic deployments.
+
+## GitHub Pages
+
+1. Build the project:
+   ```bash
+   npm run build
+   ```
+
+2. Push the contents of the `out` directory to a `gh-pages` branch.
+
+## Any Static Host
+
+You can deploy the contents of the `out` directory to any web server or CDN (AWS S3, Firebase Hosting, Surge, etc.).
